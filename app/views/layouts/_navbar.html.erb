@@ -25,15 +25,20 @@
           Account
         </a>
         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <li><%= link_to "Login", login_path, class: "dropdown-item" %></li>
-          <li><a class="dropdown-item" href="#">Logout</a></li>
-          <li><hr class="dropdown-divider"></li>
-          <li><a class="dropdown-item" href="#">Edit account</a></li>
+          <% if logged_in? %>
+            <li><a class="dropdown-item" href="#">Edit account</a></li>
+          <% else %>
+            <li><%= link_to "Login", login_path, class: "dropdown-item" %></li>
+          <% end %>
         </ul>
       </li>
       <li>
         <div class="btn-nav ms-2">
-          <a><%= link_to "Signup", login_path, class: "btn btn-warning btn-small navbar-btn" %></a>
+          <% if !logged_in? %>
+            <li><%= link_to "Signup", login_path, class: "btn btn-warning btn-small navbar-btn" %></li>
+          <% else %>
+            <li><%= link_to "Logout", logout_path, method: :delete, class: "btn btn-warning btn-small navbar-btn" %></li>
+          <% end %>
         </div>
       </li>
     </ul>
