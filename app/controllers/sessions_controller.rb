@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
       flash[:success] = "You have successfully logged in"
       redirect_to root_path
     else
-      flash.now[:error] = "Please re-enter your credentials"
+      flash.now[:warning] = "Please re-enter your credentials"
       render 'new'
     end
   end
