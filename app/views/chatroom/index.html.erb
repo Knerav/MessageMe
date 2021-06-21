@@ -36,11 +36,13 @@
           <%= render @messages %>
         </div>
         <div class="card-footer">
-          <div class="input-group mb-2 mt-2">
-            <span class="input-group-text" id="inputGroup-sizing-default">Reply</span>
-            <input type="text" placeholder="Enter your message" class="form-control" aria-label="message input">
+        <%= form_for(@message, html: {class: "form"}, url: message_path) do |f| %>
+            <div class="input-group mb-2 mt-2">
+              <%= f.text_field :body, class: "form-control", placeholder: "Enter your message" %>
+              <%= f.submit "Send", class: "btn btn-warning" %>
+            </div>
           </div>
-        </div>
+        <% end %>
       </div>
     </div>
   
