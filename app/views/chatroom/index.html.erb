@@ -18,11 +18,15 @@
         </li>
         <li class="list-group-item d-flex justify-content-between align-items-center">
           Sapana
-          <span class="badge bg-success rounded-pill">Online</span>
+          <% if logged_in? %>
+            <span class="badge bg-success rounded-pill">Online</span>
+          <% end %>
         </li>
         <li class="list-group-item d-flex justify-content-between align-items-center">
           Venkat
-          <span class="badge bg-success rounded-pill">Online</span>
+          <% if logged_in? %>
+            <span class="badge bg-success rounded-pill">Online</span>
+          <% end %>
         </li>
       </ul>
     </div>
@@ -36,13 +40,13 @@
           <%= render @messages %>
         </div>
         <div class="card-footer">
-        <%= form_for(@message, html: {class: "form"}, url: message_path, remote: true) do |f| %>
+          <%= form_for(@message, html: {class: "form"}, url: message_path, remote: true) do |f| %>
             <div class="input-group mb-2 mt-2">
-              <%= f.text_field :body, class: "form-control", placeholder: "Enter your message" %>
-              <%= f.submit "Send", class: "btn btn-warning" %>
+              <%= f.text_field :body, class: "form-control", id: "message-body", placeholder: "Enter your message" %>
+              <%= f.button "Send", class: "btn btn-warning" %>
             </div>
-          </div>
-        <% end %>
+          <% end %>
+        </div>
       </div>
     </div>
   
