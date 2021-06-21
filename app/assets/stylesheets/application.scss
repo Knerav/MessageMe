@@ -63,3 +63,8 @@ input, textarea, button, button:focus {
   cursor: pointer;
   margin-left: 1rem;
 }
+
+#message-container {
+  overflow: auto;
+  height: 15em;
+}

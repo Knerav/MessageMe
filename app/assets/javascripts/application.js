@@ -16,3 +16,13 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
+
+scroll_bottom = function() {
+  if ($('#message-container').length > 0) {
+    $('#message-container').scrollTop($('#message-container')[0].scrollHeight);
+  }
+}
+
+$(document).on('turbolinks:load', function() {
+  scroll_bottom();
+})
